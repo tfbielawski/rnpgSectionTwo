@@ -30,7 +30,8 @@ const styles = StyleSheet.create({
         overflow: "hidden", //hides ripples that try to appear outside the container
     },
     buttonInnerContainer: {
-        backgroundColor:"silver",
+        // backgroundColor:"silver",
+        backgroundColor:"ffb84d",
         paddingVertical: 8, //equal top and bottom
         paddingHorizontal: 16, //equal  left and right
         elevation: 2,

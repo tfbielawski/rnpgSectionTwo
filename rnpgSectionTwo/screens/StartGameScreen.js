@@ -35,7 +35,9 @@ const styles = StyleSheet.create({
         marginHorizontal:24,
         marginTop:100,
         padding:16,
-        backgroundColor:"cyan",
+        backgroundColor:"#4d0000",
+        // backgroundColor:"#4e0329",
+        // backgroundColor:"#cc7a00",
         elevation: 4, //droid only, use in liueu of boxShadow which doesn't exist in RN
         //use shadow for iOS
         shadowColor: "black",
@@ -49,7 +51,7 @@ const styles = StyleSheet.create({
         fontSize:32,
         borderBottomColor:'lightorange',
         borderBottomWidth: 2,
-        color: "orange",
+        color: "#ffebcc",
         marginVertical: 8,
         fontWeight: "bold",
         textAlign: "center"
