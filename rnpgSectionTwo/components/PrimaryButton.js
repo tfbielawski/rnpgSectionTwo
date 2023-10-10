@@ -1,10 +1,10 @@
 import { Text, View, Pressable, StyleSheet  } from "react-native";
 
 //Instead of passing in props, and then using props.children, we destructure it
-function PrimaryButton({children}) {
-    function pressHandler(){
-        console.log("PRESSED IT")
-    }
+function PrimaryButton({children, onPress}) {
+    // function pressHandler(){
+    //     console.log("PRESSED IT")
+    // }
   return (
       <View style={styles.buttonOuterContainer}>
          <Pressable
@@ -13,7 +13,7 @@ function PrimaryButton({children}) {
              ? [styles.buttonInnerContainer, styles.iosPressed]
              : styles.buttonInnerContainer
          }
-         onPress={pressHandler}
+         onPress={onPress}
          android_ripple={{color:"red"}}
          >
              <Text style={styles.buttonText}>{children}</Text>
@@ -30,8 +30,8 @@ const styles = StyleSheet.create({
         overflow: "hidden", //hides ripples that try to appear outside the container
     },
     buttonInnerContainer: {
-        // backgroundColor:"silver",
-        backgroundColor:"ffb84d",
+        backgroundColor:"#4e0329",
+        // backgroundColor:"ffb84d",
         paddingVertical: 8, //equal top and bottom
         paddingHorizontal: 16, //equal  left and right
         elevation: 2,
