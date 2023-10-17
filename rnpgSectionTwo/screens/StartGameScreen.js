@@ -1,6 +1,7 @@
 import {useState} from "react"
 import { TextInput,View, StyleSheet, Alert} from "react-native";
 import PrimaryButton from "../components/PrimaryButton";
+import Colors from "../constants/colors";
 
 function StartGameScreen(props){
     const [enteredNumber, setEnteredNumber] = useState("");
@@ -64,7 +65,7 @@ const styles = StyleSheet.create({
         padding:16,
         // backgroundColor:"#4d0000",
         // backgroundColor:"#4e0329",
-        backgroundColor:"#cc7a00",
+        backgroundColor:Colors.primary800,
         elevation: 4, //droid only, use in liueu of boxShadow which doesn't exist in RN
         //use shadow for iOS
         shadowColor: "black",
@@ -76,9 +77,9 @@ const styles = StyleSheet.create({
         height:50,
         width: 50,
         fontSize:32,
-        borderBottomColor:'lightorange',
+        borderBottomColor: Colors.accent500,
         borderBottomWidth: 2,
-        color: "#ffebcc",
+        color: Colors.font500,
         marginVertical: 8,
         fontWeight: "bold",
         textAlign: "center"

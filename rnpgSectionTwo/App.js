@@ -3,6 +3,7 @@ import {StyleSheet, ImageBackground, SafeAreaView } from 'react-native';
 import StartGameScreen from "./screens/StartGameScreen";
 import GameScreen from "./screens/GameScreen";
 import {LinearGradient} from "expo-linear-gradient";
+import Colors from "./constants/colors";
 
 export default function App() {
     //Set the state for whether there is a number present
@@ -23,7 +24,7 @@ export default function App() {
 
     return (
       <LinearGradient
-          colors={["#4e0329","orange"]}
+          colors={[Colors.primary500,Colors.accent500]}
           style={styles.rootScreen}>
           <ImageBackground
               source={require("./assets/images/background.jpg")}

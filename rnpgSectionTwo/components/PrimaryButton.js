@@ -1,4 +1,5 @@
 import { Text, View, Pressable, StyleSheet  } from "react-native";
+import Colors from "../constants/colors";
 
 //Instead of passing in props, and then using props.children, we destructure it
 function PrimaryButton({children, onPress}) {
@@ -30,7 +31,7 @@ const styles = StyleSheet.create({
         overflow: "hidden", //hides ripples that try to appear outside the container
     },
     buttonInnerContainer: {
-        backgroundColor:"#4e0329",
+        backgroundColor: Colors.primary500,
         // backgroundColor:"ffb84d",
         paddingVertical: 8, //equal top and bottom
         paddingHorizontal: 16, //equal  left and right
