@@ -2,7 +2,7 @@ import {useState} from "react"
 import { TextInput,View, StyleSheet, Alert} from "react-native";
 import PrimaryButton from "../components/PrimaryButton";
 
-function StartGameScreen(){
+function StartGameScreen(props){
     const [enteredNumber, setEnteredNumber] = useState("");
     //RN auto passes enteredText into the func on change in text
     function numberInputHandler(enteredText){
@@ -23,7 +23,9 @@ function StartGameScreen(){
           );
           return;
       }
-        console.log("VALID NUMBER")
+        //pass chosenNumber into onPickNumber, which is passed by props back into App.js
+        //where it is invokes pickedNumberHandler with chosenNumber
+        props.onPickNumber(chosenNumber);
     }
 
     return (
