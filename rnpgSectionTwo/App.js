@@ -4,14 +4,21 @@ import StartGameScreen from "./screens/StartGameScreen";
 import GameScreen from "./screens/GameScreen";
 import {LinearGradient} from "expo-linear-gradient";
 import Colors from "./constants/colors";
+import GameOverScreen from "./screens/GameOverScreen";
 
 export default function App() {
     //Set the state for whether there is a number present
     const [userNumber, setUserNumber] = useState();
+    const [gameIsOver, setGameIsOver] = useState(true);
 
     function pickedNumberHandler(pickedNumber){
         //Takes the chosen number and sets it to state
-        setUserNumber(pickedNumber)
+        setUserNumber(pickedNumber);
+        setGameIsOver(false);
+    }
+
+    function gameOverHandler(){
+        setGameIsOver(true);
     }
 
     /* The current screen should start as the StartGameScreen */
@@ -19,7 +26,15 @@ export default function App() {
 
     /* When a number is selected and passes validation, screen becomes the GameScreen*/
     if (userNumber) {
-        currentScreen = <GameScreen/>
+        //Pass the userNumber into the gamescreen via props
+        currentScreen= <GameScreen
+            userNumber={userNumber}
+            onGameOver={gameOverHandler}
+        />;
+    }
+
+    if (gameIsOver && userNumber){
+        currentScreen= <GameOverScreen />
     }
 
     return (
