@@ -6,6 +6,7 @@ import PrimaryButton from "../components/ui/PrimaryButton";
 import Card from "../components/ui/Card";
 import InstructionText from "../components/ui/InstructionText";
 import {Ionicons} from '@expo/vector-icons'
+import Colors from "../constants/colors";
 
 function generateRandomBetween(min, max, exclude) {
   const rndNum = Math.floor(Math.random() * (max - min)) + min;
@@ -72,7 +73,7 @@ function GameScreen({userNumber, onGameOver}) {
             <PrimaryButton onPress={nextGuessHandler.bind(this, 'greater')}>
               <Ionicons name="md-add"
                         size={24}
-                        color="white"
+                        color={Colors.font500}
               />
             </PrimaryButton>
           </View>

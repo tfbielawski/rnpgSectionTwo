@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "expo-font",
+    "slug": "expo-font",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}

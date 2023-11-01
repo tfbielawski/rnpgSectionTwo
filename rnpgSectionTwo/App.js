@@ -1,8 +1,10 @@
 import {useState} from 'react'
 import {StyleSheet, ImageBackground, SafeAreaView } from 'react-native';
+import {LinearGradient} from "expo-linear-gradient";
+import {useFonts} from "expo-font";
+
 import StartGameScreen from "./screens/StartGameScreen";
 import GameScreen from "./screens/GameScreen";
-import {LinearGradient} from "expo-linear-gradient";
 import Colors from "./constants/colors";
 import GameOverScreen from "./screens/GameOverScreen";
 
@@ -10,6 +12,8 @@ export default function App() {
     //Set the state for whether there is a number present
     const [userNumber, setUserNumber] = useState();
     const [gameIsOver, setGameIsOver] = useState(true);
+
+    useFonts({})
 
     function pickedNumberHandler(pickedNumber){
         //Takes the chosen number and sets it to state
