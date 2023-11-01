@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
         // backgroundColor:"#4d0000",
         // backgroundColor:"#4e0329",
         backgroundColor:Colors.primary800,
-        elevation: 4, //droid only, use in liueu of boxShadow which doesn't exist in RN
+        elevation: 4, //droid only, use in liue of boxShadow which doesn't exist in RN
         //use shadow for iOS
         shadowColor: "black",
         shadowOffset:{width: 0, height:2},
