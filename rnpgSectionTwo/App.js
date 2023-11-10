@@ -7,38 +7,60 @@ import StartGameScreen from "./screens/StartGameScreen";
 import GameScreen from "./screens/GameScreen";
 import Colors from "./constants/colors";
 import GameOverScreen from "./screens/GameOverScreen";
+import AppLoading from "expo-app-loading";
 
 export default function App() {
     //Set the state for whether there is a number present
     const [userNumber, setUserNumber] = useState();
     const [gameIsOver, setGameIsOver] = useState(true);
+    const [guessRounds, setGuessRounds] = useState(0)
 
-    useFonts({})
+    const [fontsLoaded] = useFonts({
+        // 'open-sans-bold': require('assets/fonts/OpenSans-Bold.ttf'),
+        // 'open-sans': require('assets/fonts/OpenSans-Regular.ttf'),
+    })
 
+    if (!fontsLoaded) {
+        return (
+            <AppLoading />
+        )
+    }
     function pickedNumberHandler(pickedNumber){
         //Takes the chosen number and sets it to state
         setUserNumber(pickedNumber);
         setGameIsOver(false);
     }
 
-    function gameOverHandler(){
+    function gameOverHandler(numberOfRounds){
         setGameIsOver(true);
+        setGuessRounds(numberOfRounds);
     }
 
+    function startNewGameHandler(){
+        setUserNumber(null);
+        setGameIsOver(true);
+        setGuessRounds(0);
+    }
     /* The current screen should start as the StartGameScreen */
     let currentScreen = <StartGameScreen onPickNumber={pickedNumberHandler}/>
 
     /* When a number is selected and passes validation, screen becomes the GameScreen*/
     if (userNumber) {
         //Pass the userNumber into the gamescreen via props
-        currentScreen= <GameScreen
-            userNumber={userNumber}
-            onGameOver={gameOverHandler}
-        />;
+        currentScreen=
+            <GameScreen
+                userNumber={userNumber}
+                onGameOver={gameOverHandler}
+            />;
     }
 
     if (gameIsOver && userNumber){
-        currentScreen= <GameOverScreen />
+        currentScreen=
+            <GameOverScreen
+                userNumber={userNumber}
+                roundNumber={guessRounds}
+                onStartNewGame={startNewGameHandler}
+            />
     }
 
     return (

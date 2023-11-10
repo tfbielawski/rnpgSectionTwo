@@ -34,7 +34,8 @@ function StartGameScreen(props){
 
     return (
         <View style={styles.rootContainer}>
-            <Title> GUESS MY NUMBER </Title>
+            <Title> GUESSING GAME </Title>
+            <Title> Enter A Number and Phoney will try to guess it! </Title>
             <Card>
                 <InstructionText>Please Enter a Number</InstructionText>
                 <TextInput

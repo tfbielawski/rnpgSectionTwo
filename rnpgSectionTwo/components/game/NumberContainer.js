@@ -14,6 +14,7 @@ export default NumberContainer
 
 const styles = StyleSheet.create({
     container:{
+        fontFamily: 'open-sans-bold',
         borderWidth: 4,
         borderColor: Colors.accent500,
         borderRadius: 8, //not supported in Text, need View
@@ -23,8 +24,9 @@ const styles = StyleSheet.create({
         justifyContent: "center"
     },
     numberText:{
+        fontFamily:'open-sans-bold',
         color: Colors.font500,
         fontSize: 36,
-        fontWeight: "bold"
+        // fontWeight: "bold"
     },
 })
