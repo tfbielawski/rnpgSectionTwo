@@ -1,13 +1,32 @@
-import {Text, View, Image, StyleSheet, Dimensions} from "react-native";
+import {Text, View, Image, StyleSheet, useWindowDimensions, ScrollView} from "react-native";
 import Title from "../components/ui/Title";
 import colors from "../constants/colors";
 import PrimaryButton from "../components/ui/PrimaryButton";
 
 function GameOverScreen({roundNumber, userNumber, onStartNewGame}){
+    const {width, height} = useWindowDimensions();
+
+    let imageSize = 300;
+
+    if (width < 380 ) {
+        imageSize = 150;
+    }
+
+    if (height < 400) {
+        imageSize = 80;
+    }
+
+    const imageStyle = {
+        width: imageSize,
+        height: imageSize,
+        borderRadius: imageSize / 2
+    }
+
     return(
+        <ScrollView style={styles.screen}>
         <View style={styles.rootContainer}>
             <Title>GAME OVER</Title>
-            <View style={styles.imageContainer}>
+            <View style={[styles.imageContainer, imageStyle]}>
                 <Image
                     style={styles.image}
                     source={require('../assets/images/success.png')}
@@ -19,20 +38,21 @@ function GameOverScreen({roundNumber, userNumber, onStartNewGame}){
                 <Text style={styles.highlight}> {roundNumber} tries</Text>. </Text>
             <PrimaryButton onPress={onStartNewGame}>START OVER</PrimaryButton>
         </View>
+        </ScrollView>
     )
 }
 export default GameOverScreen;
 
-const deviceWidth = Dimensions.get("window").width;
+// const deviceWidth = Dimensions.get("window").width;
 
 const styles = StyleSheet.create({
+    screen:{
+        flex: 1,
+    },
     imageContainer: {
-        borderRadius:deviceWidth < 240 ? 150 : 300,
-        // borderRadius: 150, //when this is half of ht / wd, we get a circle
-        width: deviceWidth < 480 ? 300 : 600,
-        // width: 300,
-        // height: 300,
-        height: deviceWidth < 480 ? 300 : 600,
+        // borderRadius:deviceWidth < 240 ? 150 : 2500,
+        // width: deviceWidth < 480 ? 300 : 500,
+        // height: deviceWidth < 480 ? 300 : 500,
         borderWidth: 3,
         borderColor: colors.primary800,
         overflow: "hidden", //hides the rectanglur nature of the image
