@@ -1,4 +1,4 @@
-import {StyleSheet, View} from "react-native";
+import {StyleSheet, View, Dimensions} from "react-native";
 import Colors from "../../constants/colors";
 
 function Card({children}){
@@ -9,6 +9,8 @@ function Card({children}){
 
 export default Card
 
+const deviceWidth = Dimensions.get("window").width;
+
 const styles = StyleSheet.create({
     card: {
         // flexDirection:"row",   // Try uncommenting and getting the text alongside
@@ -16,7 +18,8 @@ const styles = StyleSheet.create({
         alignItems:"center",      //horizontal axis
         borderRadius:8,
         marginHorizontal:24,
-        marginTop: 36,
+        marginTop: deviceWidth < 380 ? 18 : 36,
+        // marginTop: 36,
         padding:16,
         // backgroundColor:"#4d0000",
         // backgroundColor:"#4e0329",
